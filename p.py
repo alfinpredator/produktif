@@ -1,39 +1,30 @@
-class Hewan:
-    def __init__(self, nama, jenis):
-        self.nama = nama
-        self.jenis = jenis
+class Kalkulator:
+    def __init__(self, angka1, angka2):
+        self.angka1 = angka1
+        self.angka2 = angka2
 
-    def bersuara(self):
-        pass
+    def tambah(self):
+        return self.angka1 + self.angka2
 
-class Mamalia(Hewan):
-    def __init__(self, nama, jenis, mamalia_type):
-        super().__init__(nama, jenis)
-        self.mamalia_type = mamalia_type
+    def kurang(self):
+        return self.angka1 - self.angka2
 
-    def menyusui(self):
-        print(f"{self.nama} adalah mamalia yang menyusui.")
+    def kali(self):
+        return self.angka1 * self.angka2
 
-    def bersuara(self):
-        print(f"{self.nama} bersuara: Bunyi mamalia")
+    def bagi(self):
+        if self.angka2 != 0:
+            return self.angka1 / self.angka2
+        else:
+            return "Error: Pembagian oleh nol tidak diperbolehkan"
 
-class Burung(Hewan):
-    def __init__(self, nama, jenis, burung_type):
-        super().__init__(nama, jenis)
-        self.burung_type = burung_type
+# Contoh penggunaan
+angka1 = float(input("Masukkan angka pertama: "))
+angka2 = float(input("Masukkan angka kedua: "))
 
-    def terbang(self):
-        print(f"{self.nama} dapat terbang.")
+kalkulator = Kalkulator(angka1, angka2)
 
-    def bersuara(self):
-        print(f"{self.nama} bersuara: Kicau kicau")
-
-# Penggunaan kelas
-kucing = Mamalia("Kucing", "Karnivora", "Mamalia")
-elang = Burung("Elang", "Karnivora", "Burung")
-
-kucing.menyusui()
-kucing.bersuara()
-
-elang.terbang()
-elang.bersuara()
+print("Hasil penjumlahan:", kalkulator.tambah())
+print("Hasil pengurangan:", kalkulator.kurang())
+print("Hasil perkalian:", kalkulator.kali())
+print("Hasil pembagian:", kalkulator.bagi())
